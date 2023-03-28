@@ -36,7 +36,8 @@ Route::middleware('auth')->prefix('student')->group(function () {
 Route::middleware('auth')->prefix('admin/courses')->group(function () {
     Route::get('/Show',[AdminCourseController::class,'Show'])->name('ShowCourses.admin');
     Route::get('/ShowDetails/{course_id}',[AdminCourseController::class,'CourseDetails'])->name('ShowCoursesDetails.admin');
-    Route::get('/Edit/{course_id}',[AdminCourseController::class,'CourseDetails'])->name('EditCourse.admin');
+    Route::get('/Edit/{course_id}',[AdminCourseController::class,'CourseEdit'])->name('EditCourse.admin');
+    Route::get('/create',[AdminCourseController::class,'ShowAddCourse'])->name('addCourse.admin');
     Route::post('/Update/{course_id}',[AdminCourseController::class,'Edit'])->name('UpdateCourse.admin');
     Route::delete('/Delete/{course_id}',[AdminCourseController::class,'Delete'])->name('DeleteCourse.admin');
     Route::post('/Create',[AdminCourseController::class,'Create'])->name('CreateCourse.admin');
