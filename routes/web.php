@@ -43,6 +43,7 @@ Route::middleware('auth')->prefix('admin/courses')->group(function () {
 });
 Route::middleware('auth')->prefix('admin/users')->group(function () {
     Route::get('/Show',[AdminUserController::class,'Show'])->name('ShowUsers.admin');
+    Route::get('/createPage',[AdminUserController::class,'createPage'])->name('createPage.admin');
     Route::get('/Edit/{user_id}',[AdminUserController::class,'UserDetails'])->name('EditUser.admin');
     Route::post('/Update/{user_id}',[AdminUserController::class,'Edit'])->name('UpdateUser.admin');
     Route::delete('/Delete/{user_id}',[AdminUserController::class,'Delete'])->name('DeleteUser.admin');
