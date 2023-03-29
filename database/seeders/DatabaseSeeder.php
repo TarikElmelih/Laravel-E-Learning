@@ -26,7 +26,9 @@ class DatabaseSeeder extends Seeder
                 couresVideoSeeder::class,
                 AdminSeeder::class,
                 studentSeeder::class,
-                commentSeeder::class
+                commentSeeder::class,
+                course_userSeeder::class
+
 
             ]
 
