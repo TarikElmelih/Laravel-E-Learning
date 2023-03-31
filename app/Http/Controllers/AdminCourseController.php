@@ -40,26 +40,9 @@ class AdminCourseController extends Controller
         $categories = category::all();
         return view('admin.EditeCourse', compact('course', 'categories'));
     }
-    public function Create(Request $request)
+    public function Create(CourseRequest $request)
     {
 
-        $request->validate([
-            'title'         => 'required|max:100',
-            'description'   => 'required|max:255',
-            'duration'      => 'required|max:255',
-            'status'        => 'required|max:100',
-            'price'         => 'required|integer',
-            'category_id'   => 'required|exists:categories,id',
-        ], [
-            'title.required'       => 'please enter tilte',
-            'description.required' => 'please enter description',
-            'duration.required'    => 'please enter duration',
-            'status.required'      => 'please enter status',
-            'price.required'       => 'please enter price only number',
-            'category_id.required' => 'please select category',
-            'category_id.exists' => 'invalid category',
-
-        ]);
         $course = new course();
         $course->title          = $request->input('title');
         $course->description    = $request->input('description');
