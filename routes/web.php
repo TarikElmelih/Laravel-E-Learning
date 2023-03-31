@@ -41,6 +41,13 @@ Route::middleware('auth')->prefix('admin/courses')->group(function () {
     Route::delete('/Delete/{course_id}',[AdminCourseController::class,'Delete'])->name('DeleteCourse.admin');
     Route::post('/Create',[AdminCourseController::class,'Create'])->name('CreateCourse.admin');
 });
+Route::middleware('auth')->prefix('admin/category')->group(function () {
+    Route::get('/Show',[AdminCategoryController::class,'Show'])->name('ShowCategories.admin');
+    Route::get('/Edit/{category_id}',[AdminCategoryController::class,'EditShow'])->name('EditCategories.admin');
+    Route::post('/Update/{category_id}',[AdminCategoryController::class,'Edit'])->name('UpdateCategories.admin');
+    Route::delete('/Delete/{category_id}',[AdminCategoryController::class,'Delete'])->name('DeleteCategories.admin');
+    Route::post('/Create',[AdminCategoryController::class,'Create'])->name('CreateCategory.admin');
+});
 Route::middleware('auth')->prefix('admin/users')->group(function () {
     Route::get('/Show',[AdminUserController::class,'Show'])->name('ShowUsers.admin');
     Route::get('/Edit/{user_id}',[AdminUserController::class,'UserDetails'])->name('EditUser.admin');
